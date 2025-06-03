@@ -23,6 +23,9 @@
 		54C9997D2DEE757A005DC941 /* APIResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponseModel.swift; sourceTree = "<group>"; };
 		54C9997F2DEE75AA005DC941 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		54C999812DEE75B5005DC941 /* ViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModels.swift; sourceTree = "<group>"; };
+		54C999832DEE7630005DC941 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		54C999842DEE7661005DC941 /* Config-Template.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Config-Template.xcconfig"; sourceTree = "<group>"; };
+		54C999852DEE770A005DC941 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +42,8 @@
 		54C9995C2DEE7530005DC941 = {
 			isa = PBXGroup;
 			children = (
+				54C999842DEE7661005DC941 /* Config-Template.xcconfig */,
+				54C999832DEE7630005DC941 /* Config.xcconfig */,
 				54C999762DEE7538005DC941 /* WeatherForecast */,
 				54C999662DEE7530005DC941 /* Products */,
 			);
@@ -55,6 +60,7 @@
 		54C999762DEE7538005DC941 /* WeatherForecast */ = {
 			isa = PBXGroup;
 			children = (
+				54C999852DEE770A005DC941 /* Info.plist */,
 				54C9997C2DEE754C005DC941 /* Models */,
 				54C9997B2DEE7548005DC941 /* View */,
 				54C9997A2DEE753D005DC941 /* ViewModels */,
@@ -174,6 +180,7 @@
 /* Begin XCBuildConfiguration section */
 		54C9996E2DEE7532005DC941 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54C999832DEE7630005DC941 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -303,6 +310,7 @@
 				DEVELOPMENT_TEAM = GZ4X4B65P8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WeatherForecast/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -331,6 +339,7 @@
 				DEVELOPMENT_TEAM = GZ4X4B65P8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WeatherForecast/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
