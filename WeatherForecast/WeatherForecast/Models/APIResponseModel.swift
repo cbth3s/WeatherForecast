@@ -43,13 +43,17 @@ struct Condition: Decodable {
     
     var sfSymbolName: String {
         switch text.lowercased() {
-        case "sunny", "clear": return "sun.max.fill"
-        case "partly cloudy": return "cloud.sun.fill"
-        case "cloudy": return "cloud.fill"
-        case "rainy", "rain": return "cloud.rain.fill"
-        case "thunderstorm": return "cloud.bolt.fill"
-        case "snow": return "snowflake"
-        default: return "questionmark"
+        case "sunny": return "sun.max.fill"
+        case "clear": return "moon.stars.fill"
+        case "partly cloudy ", "cloudy ": return "cloud.sun.fill"
+        case "overcast ": return "cloud.fill"
+        case "patchy rain nearby", "light rain", "light drizzle": return "cloud.drizzle.fill"
+        case "light rain shower", "moderate rain" : return "cloud.rain.fill"
+        case "heavy rain": return "cloud.heavyrain.fill"
+        case "thundery outbreaks in nearby": return "cloud.bolt.rain.fill"
+        default:
+            print("👉🏿UNKNOWN WEATHER CONDITION: \(text)👈🏿")
+            return "questionmark"
         }
     }
 }
