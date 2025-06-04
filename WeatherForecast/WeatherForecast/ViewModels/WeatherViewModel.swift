@@ -19,8 +19,6 @@ class WeatherViewModel: ObservableObject {
     
     init() {}
     
-    
-    
     func fetchWeather() async {
         
         isLoading = true

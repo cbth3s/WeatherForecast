@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HourlyForecastView: View {
     
-    let hours: [HourlyForecast]
+    let hours: [HourlyForecastModel]
     
     var body: some View {
         VStack(alignment: .leading) {

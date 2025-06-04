@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CurrentWeatherView: View {
     
-    let current: CurrentWeather
+    let current: CurrentWeatherModel
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
