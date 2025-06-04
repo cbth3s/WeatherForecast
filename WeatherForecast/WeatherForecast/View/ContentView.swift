@@ -9,61 +9,72 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var vm = WeatherViewModel()
-    @State private var city = ""
+    @State private var searchText = ""
+    @State private var isSearching = false
     
     var body: some View {
-        ScrollView {
-            VStack(spacing: 20) {
-                TextField("Enter city name", text: $city, onCommit: {
-                    Task { await vm.fetchWeather(for: city) }
-                })
-                .textFieldStyle(.roundedBorder)
-                .padding(.horizontal)
-                .submitLabel(.search)
+        NavigationStack {
+            ZStack {
                 
-                if vm.isLoading {
-                    ProgressView()
-                } else if let error = vm.errorMessage {
-                    Text(error)
-                        .foregroundColor(.red)
-                }
+                Color.background
+                    .ignoresSafeArea(.all)
                 
-                if let weather = vm.weatherData {
+                ScrollView {
                     VStack(spacing: 20) {
-                        // Location info
-                        VStack {
-                            Text(weather.location.name)
-                                .font(.title)
-                            Text("\(weather.location.region), \(weather.location.country)")
-                                .font(.subheadline)
-                                .foregroundColor(.secondary)
+                        
+                        if vm.isLoading {
+                            ProgressView()
+                        } else if let error = vm.errorMessage {
+                            Text(error)
+                                .foregroundColor(.red)
                         }
                         
-                        // Current weather
-                        CurrentWeatherView(current: weather.current)
-                        
-                        // Hourly forecast (horizontal scroll)
-                        HourlyForecastView(hours: weather.forecast.forecastday.first?.hour ?? [])
-                        
-                        // Daily forecast
-                        DailyForecastView(forecastDays: weather.forecast.forecastday)
-                        
+                        if let weather = vm.weatherData {
+                            VStack(spacing: 20) {
+                                // Location info
+                                VStack {
+                                    Text(weather.location.name)
+                                        .font(.title)
+                                    Text("\(weather.location.region), \(weather.location.country)")
+                                        .font(.subheadline)
+                                        .foregroundColor(.secondary)
+                                }
+                                
+                                // Current weather
+                                CurrentWeatherView(current: weather.current)
+                                
+                                // Hourly forecast (horizontal scroll)
+                                HourlyForecastView(hours: weather.forecast.forecastday.first?.hour ?? [])
+                                
+                                // Daily forecast
+                                DailyForecastView(forecastDays: weather.forecast.forecastday)
+                            }
+                            .padding(.horizontal)
+                        } else {
+                            Text("Введите город, чтобы посмотреть погоду")
+                                .foregroundColor(.secondary)
+                        }
                     }
-                    .padding(.horizontal)
-                } else {
-                    Text("Enter city to see weather")
-                        .foregroundColor(.secondary)
+                    .padding(.vertical)
                 }
             }
-            .padding(.vertical)
+            .toolbarBackgroundVisibility(.hidden)
+            .searchable(text: $searchText,
+                        isPresented: $isSearching,
+                        placement: .navigationBarDrawer(displayMode: .automatic),
+                        prompt: "Найдите город"
+            )
+            .onSubmit(of: .search) {
+                Task {
+                    await vm.fetchWeather(for: searchText)
+                }
+            }
             .onAppear {
                 Task {
                     await vm.fetchWeather()
                 }
             }
         }
-        .background(Color.background)
-        .navigationTitle("Weather Forecast")
     }
 }
 

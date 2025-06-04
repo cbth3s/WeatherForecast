@@ -32,7 +32,7 @@ struct CurrentWeatherView: View {
             .font(.subheadline)
         }
         .padding()
-        .background(Color.background)
+        .background(Color.days)
         .cornerRadius(12)
         .shadow(radius: 5)
     }

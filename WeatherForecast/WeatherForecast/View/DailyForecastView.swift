@@ -13,7 +13,7 @@ struct DailyForecastView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-               Text("Прогноз на 5 дней")
+               Text("Прогноз на 5 дней: ")
                    .font(.headline)
             
             Divider()
@@ -51,7 +51,7 @@ struct DailyForecastView: View {
                }
            }
            .padding()
-           .background(Color.background)
+           .background(Color.days)
            .cornerRadius(12)
            .shadow(radius: 5)
     }
