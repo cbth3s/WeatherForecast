@@ -13,37 +13,38 @@ struct HourlyForecastView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-                    Text("Hourly Forecast")
-                        .font(.headline)
-                        .padding(.horizontal)
-                    
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 16) {
-                            ForEach(hours.prefix(24), id: \.time) { hour in
-                                VStack(spacing: 8) {
-                                    Text(hour.time.formattedHour())
-                                    Image(systemName: hour.condition.sfSymbolName)
-                                        .symbolRenderingMode(.multicolor)
-                                    Text("\(Int(hour.tempC))°")
-                                }
-                                .padding(8)
-                                .background(Color(.systemBackground))
-                                .cornerRadius(8)
-                            }
+            Text("Почасовой прогноз")
+                .font(.headline)
+                .padding(.horizontal)
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 16) {
+                    ForEach(hours.prefix(24), id: \.time) { hour in
+                        VStack(spacing: 8) {
+                            Text(hour.time.formattedSystemTime())
+                            Image(systemName: hour.condition.sfSymbolName)
+                                .symbolRenderingMode(.multicolor)
+                            Text("\(Int(hour.tempC))°")
                         }
-                        .padding(.horizontal)
+                        .padding(8)
+                        .background(Color.background)
+                        .cornerRadius(8)
                     }
                 }
+                .padding(.horizontal)
+            }
+        }
     }
 }
 
 extension String {
-    func formattedHour() -> String {
+    func formattedSystemTime() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
         guard let date = formatter.date(from: self) else { return self }
         
-        formatter.dateFormat = "ha"
+        formatter.timeStyle = .short
+        formatter.dateStyle = .none
         return formatter.string(from: date)
     }
 }

@@ -23,7 +23,8 @@ class APIManager {
         urlComponents.queryItems = [
             URLQueryItem(name: "key", value: apiKey),
             URLQueryItem(name: "q", value: city),
-            URLQueryItem(name: "days", value: "5")
+            URLQueryItem(name: "days", value: "5"),
+            URLQueryItem(name: "lang", value: "ru")
         ]
         
         guard let url = urlComponents.url else {

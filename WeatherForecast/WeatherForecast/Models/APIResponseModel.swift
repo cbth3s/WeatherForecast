@@ -43,11 +43,11 @@ struct Condition: Decodable {
     
     var sfSymbolName: String {
         switch text.lowercased() {
-        case "sunny": return "sun.max.fill"
-        case "clear": return "moon.stars.fill"
-        case "partly cloudy ", "cloudy ": return "cloud.sun.fill"
-        case "overcast ": return "cloud.fill"
-        case "patchy rain nearby", "light rain", "light drizzle": return "cloud.drizzle.fill"
+        case "солнечно": return "sun.max.fill"
+        case "ясно": return "moon.stars.fill"
+        case "переменная облачность", "облачно": return "cloud.sun.fill"
+        case "пасмурно": return "cloud.fill"
+        case "местами дождь", "light rain", "слабая морось": return "cloud.drizzle.fill"
         case "light rain shower", "moderate rain" : return "cloud.rain.fill"
         case "heavy rain": return "cloud.heavyrain.fill"
         case "thundery outbreaks in nearby": return "cloud.bolt.rain.fill"

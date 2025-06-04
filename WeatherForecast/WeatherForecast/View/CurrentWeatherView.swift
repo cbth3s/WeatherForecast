@@ -26,13 +26,13 @@ struct CurrentWeatherView: View {
                 .font(.title3)
             
             HStack(spacing: 16) {
-                Label("\(Int(current.windKph)) km/h", systemImage: "wind")
+                Label("\(Int(current.windKph)) км/ч", systemImage: "wind")
                 Label("\(current.humidity)%", systemImage: "humidity")
             }
             .font(.subheadline)
         }
         .padding()
-        .background(Color(.systemBackground))
+        .background(Color.background)
         .cornerRadius(12)
         .shadow(radius: 5)
     }

@@ -42,11 +42,12 @@ struct ContentView: View {
                         // Current weather
                         CurrentWeatherView(current: weather.current)
                         
+                        // Hourly forecast (horizontal scroll)
+                        HourlyForecastView(hours: weather.forecast.forecastday.first?.hour ?? [])
+                        
                         // Daily forecast
                         DailyForecastView(forecastDays: weather.forecast.forecastday)
                         
-                        // Hourly forecast (horizontal scroll)
-                        HourlyForecastView(hours: weather.forecast.forecastday.first?.hour ?? [])
                     }
                     .padding(.horizontal)
                 } else {
@@ -56,7 +57,7 @@ struct ContentView: View {
             }
             .padding(.vertical)
         }
-        .background(Color(.systemGroupedBackground))
+        .background(Color.background)
         .navigationTitle("Weather Forecast")
     }
 }
