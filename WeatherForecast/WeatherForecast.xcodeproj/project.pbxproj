@@ -17,6 +17,7 @@
 		54C999AA2DEF5297005DC941 /* CurrentWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C999A92DEF5297005DC941 /* CurrentWeatherView.swift */; };
 		54C999AC2DEF5324005DC941 /* DailyForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C999AB2DEF5324005DC941 /* DailyForecastView.swift */; };
 		54C999AE2DEF53B9005DC941 /* HourlyForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C999AD2DEF53B9005DC941 /* HourlyForecastView.swift */; };
+		54C999F32DEFDB3E005DC941 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C999F22DEFDB3E005DC941 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		54C999A92DEF5297005DC941 /* CurrentWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherView.swift; sourceTree = "<group>"; };
 		54C999AB2DEF5324005DC941 /* DailyForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastView.swift; sourceTree = "<group>"; };
 		54C999AD2DEF53B9005DC941 /* HourlyForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyForecastView.swift; sourceTree = "<group>"; };
+		54C999F22DEFDB3E005DC941 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				54C999872DEE77DD005DC941 /* APIManager.swift */,
+				54C999F22DEFDB3E005DC941 /* LocationManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 			files = (
 				54C999882DEE77DD005DC941 /* APIManager.swift in Sources */,
 				54C999A82DEF3CA9005DC941 /* APIKeys.swift in Sources */,
+				54C999F32DEFDB3E005DC941 /* LocationManager.swift in Sources */,
 				54C999772DEE7538005DC941 /* ContentView.swift in Sources */,
 				54C999A42DEF167A005DC941 /* WeatherViewModel.swift in Sources */,
 				54C999AA2DEF5297005DC941 /* CurrentWeatherView.swift in Sources */,
@@ -351,6 +355,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherForecast/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Приложению требуется доступ к вашему местоположению для показа погоды";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Приложению требуется доступ к вашему местоположению для показа погоды";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -380,6 +386,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherForecast/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Приложению требуется доступ к вашему местоположению для показа погоды";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Приложению требуется доступ к вашему местоположению для показа погоды";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

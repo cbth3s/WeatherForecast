@@ -14,9 +14,32 @@ class WeatherViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     @Published var errorMessage: String?
     
-    private let manager = APIManager.shared
+    private let apiManager = APIManager.shared
+    private let locationManager = LocationManager()
     
     init() {}
+    
+    
+    
+    func fetchWeather() async {
+        
+        isLoading = true
+        errorMessage = nil
+        
+        locationManager.requestLocation()
+        
+        try? await Task.sleep(nanoseconds: 1_000_000_000)
+        
+        if let location = locationManager.location {
+            let coordinates = "\(location.coordinate.latitude),\(location.coordinate.longitude)"
+            print("!!!COORDINATES: \(coordinates)")
+            await fetchWeather(for: coordinates)
+        } else {
+            await fetchWeather(for: "London")
+        }
+        
+        isLoading = false
+    }
     
     func fetchWeather(for city: String) async {
         
@@ -29,8 +52,7 @@ class WeatherViewModel: ObservableObject {
         errorMessage = nil
         
         do {
-            weatherData = try await manager.fetchForecast(for: city)
-            print("Received data: \(weatherData)") // Проверь ответ API
+            weatherData = try await apiManager.fetchForecast(for: city)
         } catch let error {
             errorMessage = error.localizedDescription
             print("API Error:", error)

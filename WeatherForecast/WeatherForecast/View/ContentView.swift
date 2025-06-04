@@ -56,6 +56,11 @@ struct ContentView: View {
                 }
             }
             .padding(.vertical)
+            .onAppear {
+                Task {
+                    await vm.fetchWeather()
+                }
+            }
         }
         .background(Color.background)
         .navigationTitle("Weather Forecast")
