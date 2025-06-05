@@ -27,6 +27,8 @@
 		54C99A392DF0C1F6005DC941 /* ConditionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C99A382DF0C1F6005DC941 /* ConditionModel.swift */; };
 		54C99A3C2DF0C3EE005DC941 /* CondtionModelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C99A3B2DF0C3EE005DC941 /* CondtionModelExtension.swift */; };
 		54C99A3E2DF0CB0E005DC941 /* CustomSearchStringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C99A3D2DF0CB0E005DC941 /* CustomSearchStringView.swift */; };
+		54D6C1E32DF135B50018AC84 /* FormattedSystemTimeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D6C1E22DF135B50018AC84 /* FormattedSystemTimeExtension.swift */; };
+		54D6C1E52DF135DD0018AC84 /* FormattedDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D6C1E42DF135DD0018AC84 /* FormattedDateExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		54C99A382DF0C1F6005DC941 /* ConditionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionModel.swift; sourceTree = "<group>"; };
 		54C99A3B2DF0C3EE005DC941 /* CondtionModelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CondtionModelExtension.swift; sourceTree = "<group>"; };
 		54C99A3D2DF0CB0E005DC941 /* CustomSearchStringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchStringView.swift; sourceTree = "<group>"; };
+		54D6C1E22DF135B50018AC84 /* FormattedSystemTimeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedSystemTimeExtension.swift; sourceTree = "<group>"; };
+		54D6C1E42DF135DD0018AC84 /* FormattedDateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedDateExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +201,8 @@
 			isa = PBXGroup;
 			children = (
 				54C99A3B2DF0C3EE005DC941 /* CondtionModelExtension.swift */,
+				54D6C1E22DF135B50018AC84 /* FormattedSystemTimeExtension.swift */,
+				54D6C1E42DF135DD0018AC84 /* FormattedDateExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -275,6 +281,7 @@
 			files = (
 				54C999882DEE77DD005DC941 /* APIManager.swift in Sources */,
 				54C99A3C2DF0C3EE005DC941 /* CondtionModelExtension.swift in Sources */,
+				54D6C1E52DF135DD0018AC84 /* FormattedDateExtension.swift in Sources */,
 				54C999FD2DF091BA005DC941 /* ForecastModel.swift in Sources */,
 				54C999A82DEF3CA9005DC941 /* APIKeys.swift in Sources */,
 				54C999F82DF09139005DC941 /* LocationModel.swift in Sources */,
@@ -285,6 +292,7 @@
 				54C999A42DEF167A005DC941 /* WeatherViewModel.swift in Sources */,
 				54C999AA2DEF5297005DC941 /* CurrentWeatherView.swift in Sources */,
 				54C99A3E2DF0CB0E005DC941 /* CustomSearchStringView.swift in Sources */,
+				54D6C1E32DF135B50018AC84 /* FormattedSystemTimeExtension.swift in Sources */,
 				54C9997E2DEE757A005DC941 /* APIResponseModel.swift in Sources */,
 				54C999FF2DF09206005DC941 /* ForecastDayModel.swift in Sources */,
 				54C999FA2DF09164005DC941 /* CurrentWeatherModel.swift in Sources */,
