@@ -10,33 +10,15 @@ import SwiftUI
 struct ContentView: View {
     @StateObject private var vm = WeatherViewModel()
     @State private var searchText = ""
-    @State private var showSearchBar = false
+    @State private var isSearching = false
     
     var body: some View {
-        ZStack {
-            Color.background
-                .ignoresSafeArea(.all)
-            
-            VStack(spacing: 0) {
-                if showSearchBar {
-                    CustomSearchStringView(
-                        searchText: $searchText,
-                        showSearchBar: $showSearchBar,
-                        vm: vm
-                    )
-                }
+        NavigationStack {
+            ZStack {
+                Color.background
+                    .ignoresSafeArea(.all)
                 
                 VStack(spacing: 20) {
-                    
-                    if !showSearchBar {
-                        Button{ showSearchBar = true }
-                        label: {
-                            Image(systemName: "magnifyingglass")
-                                .frame(maxWidth: .infinity, alignment: .trailing)
-                                .padding(.trailing)
-                                .foregroundStyle(.gray)
-                        }
-                    }
                     
                     if vm.isLoading {
                         ProgressView()
@@ -74,10 +56,20 @@ struct ContentView: View {
                 .padding(.vertical)
                 
             }
-            .onAppear {
-                Task {
-                    await vm.fetchWeather()
-                }
+        }
+        .searchable(text: $searchText,
+                    isPresented: $isSearching,
+                    placement: .navigationBarDrawer(displayMode: .automatic),
+                    prompt: "Найдите город"
+        )
+        .onSubmit(of: .search) {
+            Task {
+                await vm.fetchWeather(for: searchText)
+            }
+        }
+        .onAppear {
+            Task {
+                await vm.fetchWeather()
             }
         }
     }
