@@ -64,3 +64,4 @@ fastlane/test_output
 *.xcconfig
 !*-Template.xcconfig
 **/.DS_Store
+.DS_Store
